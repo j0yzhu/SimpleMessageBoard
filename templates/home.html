@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the chat!</title>
+</head>
+<body>
+
+<div>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>
+                    <strong> {{ message.author }}: </strong> {{ message.content }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages yet.</p>
+    {% endif %}
+</div>
+
+<div>
+    <form method="post" action="/message">
+        <label for="author">Name:</label>
+        <input type="text" id="author" name="author" required>
+        <br>
+        <label for="content">Message:</label>
+        <input type="text" id="content" name="content" required>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+</body>
+</html>
