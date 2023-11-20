@@ -11,7 +11,7 @@
         <ul>
             {% for message in messages %}
                 <li>
-                    <strong> {{ message.author }}: </strong> {{ message.content }}
+                    <strong> {{ message.author }}: </strong> "{{ message.content }}"
                 </li>
             {% endfor %}
         </ul>
@@ -25,8 +25,10 @@
         <label for="author">Name:</label>
         <input type="text" id="author" name="author" required>
         <br>
+        <br>
         <label for="content">Message:</label>
         <input type="text" id="content" name="content" required>
+        <br>
         <br>
         <button type="submit">Send</button>
     </form>
