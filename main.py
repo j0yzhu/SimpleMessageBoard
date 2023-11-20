@@ -1,6 +1,9 @@
 from flask import Flask, request, Response, render_template, session, redirect
+from flask_socketio import SocketIO, send
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "jfurehfieo"
+socketio = SocketIO(app)
 
 # message will have an author and a content
 class Message:
@@ -36,4 +39,4 @@ def get_response():
 
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    socketio.run(app, debug=True)
